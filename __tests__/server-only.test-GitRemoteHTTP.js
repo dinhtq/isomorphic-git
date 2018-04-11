@@ -18,7 +18,8 @@ describe('GitRemoteHTTP', () => {
       'GitRemoteHTTP - preparePull (Github response).json'
     )
     // Test
-    let remote = await GitRemoteHTTP.preparePull({
+    let remote = await GitRemoteHTTP.discover({
+      service: 'git-upload-pack',
       url: 'https://github.com/isomorphic-git/isomorphic-git'
     })
     expect(remote).toBeTruthy()
@@ -34,7 +35,8 @@ describe('GitRemoteHTTP', () => {
       'GitRemoteHTTP - preparePull (mock response).json'
     )
     // Test
-    let remote = await GitRemoteHTTP.preparePull({
+    let remote = await GitRemoteHTTP.discover({
+      service: 'git-upload-pack',
       url: 'http://example.dev/test-GitRemoteHTTP'
     })
     expect(remote).toBeTruthy()
@@ -48,7 +50,8 @@ describe('GitRemoteHTTP', () => {
       'GitRemoteHTTP - preparePush (mock response).json'
     )
     // Test
-    let remote = await GitRemoteHTTP.preparePush({
+    let remote = await GitRemoteHTTP.discover({
+      service: 'git-receive-pack',
       url: 'http://example.dev/test-GitRemoteHTTP'
     })
     expect(remote).toBeTruthy()
